@@ -1,7 +1,10 @@
 import React from 'react'
+import Transaction from './Transaction'
 
-const TransactionsList = () => {
-
+const TransactionsList = (props) => {
+  // Create an individual row and assign a key to each transaction that will be displayed to the user
+  const allTheTransactions = props.transactions.map((transaction, ndx) => <Transaction {...transaction} key={Date.now() + ndx} />)
+  
   return (
     <table className="ui celled striped padded table">
       <tbody>
@@ -28,7 +31,7 @@ const TransactionsList = () => {
           </th>
         </tr>
 
-        {"... your code here..."}
+        {allTheTransactions} {/* Display allllllllll the transactions */}
 
       </tbody>
     </table>
